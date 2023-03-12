@@ -41,9 +41,20 @@ while game_is_on:
     if ball.xcor() > 410:
         scoreboard.r_score()
         ball.reset_ball()
+
     if ball.xcor() < -410:
         scoreboard.l_score()
         ball.reset_ball()
+
+    if scoreboard.score_r == 5 or scoreboard.score_l == 5:
+        if scoreboard.score_r == 5:
+            scoreboard.end_game("r")
+            ball.hideturtle()
+        else:
+            scoreboard.end_game("l")
+            ball.hideturtle()
+        game_is_on = False
+
     screen.update()
 
 screen.exitonclick()

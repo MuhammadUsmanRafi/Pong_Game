@@ -19,9 +19,17 @@ class ScoreBoard(Turtle):
         self.write(self.score_r, align="center", font=("Courier", 80, "normal"))
 
     def r_score(self):
-        self.score_r += 1
+        self.score_l += 1
         self.update_score()
 
     def l_score(self):
-        self.score_l += 1
+        self.score_r += 1
         self.update_score()
+
+    def end_game(self, winner):
+        self.goto(0, 0)
+        if winner == 'l':
+            self.write("Left Winner", align="center", font=("Courier", 24, "normal"))
+        else:
+            self.write("Right Winner", align="center", font=("Courier", 24, "normal"))
+
